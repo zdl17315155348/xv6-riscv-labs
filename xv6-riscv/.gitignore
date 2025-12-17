@@ -1,0 +1,10 @@
+*.o
+*.d
+*.asm
+*.sym
+*.img
+*.bin
+kernel/kernel
+user/_*
+fs.img
+.qemu*

@@ -1,0 +1,14 @@
+qemu/
+
+# build artifacts
+*.o
+*.d
+*.a
+*.so
+*.out
+*.log
+*.elf
+*.img
+*.bin
+*.swp
+*.tmp
