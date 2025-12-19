@@ -6,11 +6,11 @@ current progress:
 
 --lab1 
 
-N = 10,000  ticks = 165  exchanges/sec = 6060
+	N = 10,000  ticks = 165  exchanges/sec = 6060
 
-N = 100,000 ticks = 1668 exchanges/sec = 5995
+	N = 100,000 ticks = 1668 exchanges/sec = 5995
 
-N = 500,000 ticks = 8115 exchanges/sec = 6161
+	N = 500,000 ticks = 8115 exchanges/sec = 6161
 
 
 --lab2 
