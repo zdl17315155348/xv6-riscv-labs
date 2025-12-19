@@ -1,7 +1,6 @@
 #include "kernel/types.h"
 #include "user/user.h"
 
-// xv6 用户态没有标准 atoi/strtol；自己写一个简单的
 static int atoi_simple(const char *s)
 {
   int n = 0;
@@ -33,7 +32,7 @@ int main(int argc, char *argv[])
     exit(1);
   }
 
-  int N = 10000;//default 10000 times
+  int N = 10000; //default 10000 times
   if(argc >= 2){
     int x = atoi_simple(argv[1]);
     if(x <= 0){
@@ -50,12 +49,10 @@ int main(int argc, char *argv[])
     close(stf[0]); // 子不用读 stf
 
     for(int i = 0; i < N; i++){
-      // 从父读 1 字节
       if(read(fts[0], &b, 1) != 1){
         fprintf(2, "child read failed\n");
         exit(1);
       }
-      // 回写给父 1 字节
       if(write(stf[1], &b, 1) != 1){
         fprintf(2, "child write failed\n");
         exit(1);
@@ -94,8 +91,6 @@ int main(int argc, char *argv[])
   wait(0);
 
   // 4) 输出性能结果
-  // TODO: xv6 常见是 100 ticks/sec
-  // 先假定 100，如果想严谨，可以在 kernel 里找 TICKS_PER_SEC/HZ 的定义
   int ticks_per_sec = 100;
 
   if(dt <= 0){
@@ -103,7 +98,6 @@ int main(int argc, char *argv[])
     exit(0);
   }
 
-  // exchanges/sec：一次 exchange 定义为“父写1字节 + 子回1字节”（父循环一次算一次）
   int xps = (N * ticks_per_sec) / dt;
 
   printf("exchanges: %d, time: %d ticks, exchanges/sec: %d\n", N, dt, xps);
