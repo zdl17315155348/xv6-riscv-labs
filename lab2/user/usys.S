@@ -90,18 +90,28 @@ getpid:
  li a7, SYS_getpid
  ecall
  ret
-.global sys_sbrk
-sys_sbrk:
+.global sbrk
+sbrk:
  li a7, SYS_sbrk
  ecall
  ret
-.global pause
-pause:
- li a7, SYS_pause
+.global sleep
+sleep:
+ li a7, SYS_sleep
  ecall
  ret
 .global uptime
 uptime:
  li a7, SYS_uptime
+ ecall
+ ret
+.global trace
+trace:
+ li a7, SYS_trace
+ ecall
+ ret
+.global sysinfo
+sysinfo:
+ li a7, SYS_sysinfo
  ecall
  ret
